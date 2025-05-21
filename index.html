@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КНИЖНЫЙ МАГАЗИН</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">КНИЖНЫЙ МАГАЗИН</a>
+        <nav>
+            <ul>
+                <li><a href="#catalog">Каталог</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+                <li><a href="#cart">Корзина (<span id="cart-counter">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Добро пожаловать в КНИЖНЫЙ МАГАЗИН</h1>
+            <p>Ваш источник лучших книг современности</p>
+            <button>Смотреть новинки</button>
+        </section>
+
+        <section id="catalog">
+            <h2>Популярные книги</h2>
+
+            <div class="categories">
+                <button data-category="all">Все</button>
+                <button data-category="biznes">Бизнес</button>
+                <button data-category="handmade">Рукоделие</button>
+              </div>
+              
+            <div class="featured-books">
+                <!-- Пример карточки книги -->
+                <article class="book-card">
+                    <img src="https://www.mann-ivanov-ferber.ru/assets/images/books/ta-dam/ta-dam-big.png" alt="Обложка книги">
+                    <h3 data-category="handmade">Включите сердце и мозги</h3>
+                    <p>Автор: Дария Бикбаева</p>
+                    <p>Тематика: Бизнес-творчества</p>
+                    <p>Цена: 5 ₽</p>
+                    <button onclick="addToCart({ id: 1, title: 'Включите сердце и мозги', price: 5 })">В корзину</button>
+                </article>
+                <article class="book-card">
+                    <img src="https://www.mann-ivanov-ferber.ru/assets/images/books/biznes_svoimi_rukami/biznes_svoimi_rukami-big.png" alt="Обложка книги">
+                    <h3 data-category="handmade">Handmade</h3>
+                    <p>Автор: Кари Чапан</p>
+                    <p>Тематика: Handmade-бизнес</p>
+                    <p>Цена: 5 ₽</p>
+                    <button onclick="addToCart({ id: 2, title: 'Handmade', price: 5 })">В корзину</button>
+                </article>
+
+                <article class="book-card">
+                    <img src="https://cdn.respublica.ru/uploads/01/00/00/c2/8p/bdf69642f898a42b.jpg?1554291648" alt="Обложка книги">
+                    <h3 data-category="biznes">Бизнес в интернете на примере известных брендов</h3>
+                    <p>Автор: Пол Маккарти</p>
+                    <p>Тематика: Бизнес</p>
+                    <p>Цена: 5 ₽</p>
+                    <button onclick="addToCart({ id: 3, title: 'Бизнес в интернете на примере известных брендов', price: 5 })">В корзину</button>
+                </article>
+
+                <article class="book-card">
+                    <img src="https://cdn.respublica.ru/uploads/01/00/00/b6/bv/4daff90980dbc1cc.jpg?1545081886" alt="Обложка книги">
+                    <h3 data-category="biznes">Как зарабатывать в Instagram</h3>
+                    <p>Автор: Дарья Манелова</p>
+                    <p>Тематика: Бизнес</p>
+                    <p>Цена: 5 ₽</p>
+                    <button onclick="addToCart({ id: 4, title: 'Как зарабатывать в Instagram', price: 5 })">В корзину</button>
+                </article>
+
+                <article class="book-card">
+                    <img src="https://cdn.respublica.ru/uploads/01/00/00/cu/0x/e1613e09b203eb77.jpg?1574292371" alt="Обложка книги">
+                    <h3 data-category="biznes">Как заработать в Интернете</h3>
+                    <p>Автор: Наталья Покатилова</p>
+                    <p>Тематика: Бизнес/творчества</p>
+                    <p>Цена: 5 ₽</p>
+                    <button onclick="addToCart({ id: 5, title: 'Как заработать в Интернете', price: 5 })">В корзину</button>
+                </article>
+
+                <article class="book-card">
+                    <img src="https://cdn.respublica.ru/uploads/01/00/00/cm/xv/1a398205ae3b629c.jpg?1571303823" alt="Обложка книги">
+                    <h3 data-category="biznes">О мой блог! Как начать вести блог и не останавливаться</h3>
+                    <p>Автор: Анна Шуст</p>
+                    <p>Тематика: Бизнес/творчества</p>
+                    <p>Цена: 5 ₽</p>
+                    <button onclick="addToCart({ id: 6, title: 'О мой блог! Как начать вести блог и не останавливаться', price: 5 })">В корзину</button>
+                </article>
+
+                <article class="book-card">
+                    <img src="https://cdn.litres.ru/pub/c/cover_200/49769803.webp" alt="Обложка книги">
+                    <h3 data-category="biznes">Дурная кровь. Тайны и ложь одного стартапа Кремниевой долины</h3>
+                    <p>Автор: Джона Каррейру</p>
+                    <p>Тематика: Бизнес</p>
+                    <p>Цена: 5 ₽</p>
+                    <button onclick="addToCart({ id: 7, title: 'Дурная кровь. Тайны и ложь одного стартапа Кремниевой долины', price: 5 })">В корзину</button>
+                </article>
+
+                <article class="book-card">
+                    <img src="https://cdn.litres.ru/pub/c/cover_200/67423319.webp" alt="Обложка книги">
+                    <h3 data-category="biznes">10 уроках для мира после пандемии</h3>
+                    <p>Автор: Фарид Закария</p>
+                    <p>Тематика: Бизнес-саморазвития</p>
+                    <p>Цена: 5 ₽</p>
+                    <button onclick="addToCart({ id: 8, title: '10 уроках для мира после пандемии', price: 5 })">В корзину</button>
+                </article>
+
+                <article class="book-card">
+                    <img src="https://cdn.litres.ru/pub/c/cover_200/66353850.webp" alt="Обложка книги">
+                    <h3 data-category="biznes">Сложные решения. Как управлять бизнесом, когда нет простых ответов</h3>
+                    <p>Автор: Бен хоровиц</p>
+                    <p>Тематика: Бизнес</p>
+                    <p>Цена: 5 ₽</p>
+                    <button onclick="addToCart({ id: 9, title: 'Сложные решения. Как управлять бизнесом, когда нет простых ответов', price: 5 })">В корзину</button>
+                </article>
+                <!-- Повторить для других книг -->
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>О нашем магазине</h2>
+            <p>Мы работаем с 2024 года, предлагая лучший выбор литературы...</p>
+        </section>
+
+        <section id="contacts">
+            <h2>Контакты</h2>
+            <address>
+                <p>Адрес: Ашхабат, ул. Свобода, 15</p>
+                <p>Телефон: +99312 000000</p>
+                <p>Email: books@gmail.com</p>
+            </address>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>БИБЛИОТЕКА ТГМУ</h3>
+                <p>© 2024 Все права защищены</p>
+            </div>
+            <div>
+                <h4>Соцсети</h4>
+                <ul>
+                    <li><a href="#">VK</a></li>
+                    <li><a href="#">Telegram</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Помощь</h4>
+                <ul>
+                    <li><a href="#">Доставка</a></li>
+                    <li><a href="#">Оплата</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+<script src="script.js"></script>
+
+</html>

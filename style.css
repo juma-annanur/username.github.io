@@ -1,0 +1,233 @@
+/* Базовые стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        /* Шапка */
+        header {
+            background: #031A09;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 2rem;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        /* Основной контент */
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Герой-секция */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: #316C40;
+            color: #ffffff;
+            margin-bottom: 2rem;
+        }
+
+        /* Секция популярных книг */
+        .featured-books {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .book-card {
+            border: 1px solid #294E28;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .book-card img {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        /* Подвал */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                margin-top: 1rem;
+            }
+
+            nav li {
+                margin: 0.5rem 0;
+            }
+        }
+       .book-card {
+    position: relative;
+    max-width: 300px;
+    background: hwb(195 95% 4%);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 30px rgba(139, 178, 230, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    margin: 15px;
+    opacity: 0;
+    animation: cardAppear 0.6s ease forwards;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 30px rgba(25, 71, 92, 0.2);
+}
+
+.book-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.book-card:hover img {
+    transform: scale(1.05);
+}
+
+.book-card h3 {
+    font-family: 'Arial', sans-serif;
+    color: #2c3e50;
+    margin: 10px 0;
+    font-size: 1.2em;
+    min-height: 60px;
+}
+
+.book-card p {
+    color: #7f8c8d;
+    margin: 8px 0;
+    font-size: 0.9em;
+}
+
+.book-card button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.book-card button:hover {
+    background: #2980b9;
+    transform: translateX(10px);
+}
+
+.book-card button::after {
+    content: '→';
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.book-card button:hover::after {
+    opacity: 1;
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Базовый стиль для всех категорий */
+.book-card h3[data-category] {
+    position: relative;
+    padding-left: 15px;
+}
+
+.book-card h3[data-category]::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 4px;
+    height: 80%;
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+}
+
+/* Индивидуальные цвета для категорий */
+.book-card h3[data-category="all"]::before {
+    background: #95a5a6;  /* Серый для "all" */
+}
+
+.book-card h3[data-category="biznes"]::before {
+    background: #e74c3c;  /* Красный для бизнеса */
+}
+
+.book-card h3[data-category="handmade"]::before {
+    background: #3498db;  /* Синий для рукоделя */
+}
+
+:root {
+    --category-all: #95a5a6;
+    --category-business: #e74c3c;
+    --category-fiction: #3498db;
+}
+
+.book-card h3[data-category="all"]::before {
+    background: var(--category-all);
+}
